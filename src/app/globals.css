@@ -1,0 +1,186 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rozha+One&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* apply some general styles */
+@layer base {
+  .section {
+    @apply py-[40px] lg:py-[160px];
+  }
+  .link {
+    @apply uppercase font-primary tracking-[0.08em];
+  }
+  .h1 {
+    @apply text-[60px] lg:text-[118px] tracking-[-2px] leading-none font-tertiary mb-4;
+  }
+  .h2 {
+    @apply text-[40px] xl:text-[85px] text-dark uppercase font-primary max-w-[236px] leading-none mb-[38px];
+  }
+  .h4 {
+    @apply text-[22px] font-semibold;
+  }
+  /* buttons */
+  .btn {
+    @apply font-primary text-lg tracking-[0.08em] uppercase px-[40px] transition-all duration-300 flex items-center gap-x-[10px];
+  }
+  .btn-sm {
+    @apply h-[55px];
+  }
+  .btn-lg {
+    @apply h-[67px];
+  }
+  .btn-outline {
+    @apply border border-white/70 bg-none hover:bg-white hover:text-dark;
+  }
+  .btn-dark {
+    @apply bg-dark hover:bg-dark/90 transition-all text-white;
+  }
+  .btn-link {
+    @apply px-0 h-auto text-dark hover:text-dark/90 transition-all;
+  }
+}
+
+@layer utilities {
+  .text-dark {
+    @apply text-[#111111];
+  }
+
+  .wrapper {
+    @apply max-w-5xl mx-auto px-5 md:px-10 w-full p-16-regular;
+  }
+
+  /* 36 */
+  .h3-bold {
+    @apply font-bold text-[28px] leading-[36px] md:text-[36px] md:leading-[44px];
+  }
+
+  .gradient-text {
+    @apply bg-cover bg-clip-text text-transparent;
+  }
+
+  .h2-bold {
+    @apply text-[30px] font-bold md:text-[36px] leading-[110%];
+  }
+
+  /* ===== ALIGNMENTS */
+  .flex-center {
+    @apply flex justify-center items-center;
+  }
+
+  .flex-between {
+    @apply flex justify-between items-center;
+  }
+
+  /* 16 */
+  .p-16-semibold {
+    @apply font-semibold text-[16px] leading-[140%];
+  }
+
+  .p-16-medium {
+    @apply font-medium text-[16px] leading-[140%];
+  }
+
+  .p-16-regular {
+    @apply font-normal text-[16px] leading-[140%];
+  }
+
+  /* Navbar Component */
+  .header {
+    @apply flex-between fixed h-16 w-full border-b-4 border-purple-100 bg-white p-5 lg:hidden;
+  }
+
+  .header-nav_elements {
+    @apply mt-8 flex w-full flex-col items-start gap-5;
+  }
+
+  /* Search Component */
+  .search {
+    @apply flex w-full rounded-[16px] border-2 border-purple-200/20 bg-white px-4 shadow-sm shadow-purple-200/15 md:max-w-96;
+  }
+
+  /* Sidebar Component */
+  .sidebar {
+    @apply hidden h-screen w-72 bg-white p-5 shadow-md shadow-purple-200/50 lg:flex;
+  }
+
+  .sidebar-logo {
+    @apply flex items-center gap-2 md:py-2;
+  }
+
+  .sidebar-nav {
+    @apply h-full flex-col justify-between md:flex md:gap-4;
+  }
+
+  .sidebar-nav_elements {
+    @apply hidden w-full flex-col items-start gap-2 md:flex;
+  }
+
+  .sidebar-nav_element {
+    @apply flex-center p-16-semibold w-full whitespace-nowrap rounded-full bg-cover transition-all hover:bg-purple-100 hover:shadow-inner;
+  }
+
+  .sidebar-link {
+    @apply p-16-semibold flex size-full gap-4 p-4;
+  }
+
+  /* SHADCN OVERRIDES */
+  .select-field {
+    @apply w-full bg-white h-[54px] placeholder:bg-white rounded-full px-5 py-3 border-none focus-visible:ring-transparent focus:ring-transparent !important;
+  }
+
+  .input-field {
+    @apply bg-white h-[54px] focus-visible:ring-offset-0 placeholder:bg-white rounded-full  px-4 py-3 border-none focus-visible:ring-transparent !important;
+  }
+
+  .textarea {
+    @apply bg-white flex flex-1 placeholder:bg-white  px-5 py-3 border-none focus-visible:ring-transparent !important;
+  }
+
+  .button {
+    @apply rounded-full h-[54px];
+  }
+
+  .select-item {
+    @apply py-3 cursor-pointer;
+  }
+
+  .toggle-switch {
+    @apply bg-gray-300 !important;
+  }
+
+  .modal-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+
+    .modal-video-body {
+      position: relative;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+
+      video {
+        border-radius: 8px;
+      }
+    }
+
+    .modal-video-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: transparent;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+    }
+  }
+}
