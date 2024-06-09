@@ -12,10 +12,6 @@ export const navData = [
     route: "#about",
   },
   {
-    label: "Projets",
-    route: "/projects",
-  },
-  {
     label: "Contact",
     route: "#contact",
   },
