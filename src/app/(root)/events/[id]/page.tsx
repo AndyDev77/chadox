@@ -54,9 +54,7 @@ const EventDetails = async ({ params: { id }, searchParams }: SearchParamProps) 
 
             <div className="flex flex-col gap-2">
               <Button className="bg-dark text-white">
-                <Link href={event.videoUrl} target="_blank">
-                  Voir la vidéo
-                </Link>
+                <Link href={event.videoUrl}>Voir la vidéo</Link>
               </Button>
             </div>
           </div>
