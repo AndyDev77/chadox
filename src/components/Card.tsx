@@ -11,9 +11,10 @@ type CardProps = {
 
 const Card = ({ event, hidePrice }: CardProps) => {
   const { sessionClaims } = auth();
-  const userId = sessionClaims?.userId as string;
+  const userId = sessionClaims?.userId as string | undefined;
 
-  const isEventCreator = userId === event.organizer._id.toString();
+  const isEventCreator =
+    userId && event.organizer ? userId === event.organizer._id.toString() : false;
 
   return (
     <div className="group relative flex min-h-[380px] w-full max-w-[400px] flex-col overflow-hidden rounded-xl bg-white shadow-md transition-all hover:shadow-lg md:min-h-[438px]">
@@ -35,23 +36,21 @@ const Card = ({ event, hidePrice }: CardProps) => {
       )}
 
       <div className="flex min-h-[230px] flex-col gap-3 p-5 md:gap-4">
-        {!hidePrice && (
-          <div className="flex gap-2">
-            <span className="p-semibold-14 w-fit rounded-full bg-dark px-4 py-1 text-white">
-              {event.category.name}
-            </span>
-          </div>
-        )}
+        <div className="flex gap-2">
+          <span className="p-semibold-14 w-fit rounded-full bg-purple-100 px-4 py-1 text-purple-60">
+            {event.category.name}
+          </span>
+        </div>
 
         <Link href={`/events/${event._id}`}>
-          <p className="p-medium-16 md:p-medium-20 line-clamp-2 flex-1 text-black font-bold">
-            {event.title}
-          </p>
+          <p className="p-medium-16 md:p-medium-20 line-clamp-2 flex-1 text-black">{event.title}</p>
         </Link>
 
         <div className="flex-between w-full">
           <p className="p-medium-14 md:p-medium-16 text-grey-600">
-            {event.organizer.firstName} {event.organizer.lastName}
+            {event.organizer
+              ? `${event.organizer.firstName} ${event.organizer.lastName}`
+              : "Unknown Organizer"}
           </p>
         </div>
       </div>
