@@ -26,14 +26,9 @@ export default async function Home({ searchParams }: SearchParamProps) {
     <main className="max-w-[1920px] mx-auto overflow-hidden bg-white">
       <Hero />
       <About />
-      <section id="events" className="bg-dotted-pattern w-full my-8 ">
+      <section id="events" className="bg-dotted-pattern w-full">
         <div className="wrapper flex flex-col gap-8 md:gap-12 ">
-          <h2 className="h2-bold">
-            {" "}
-            <br />
-            <br />
-            Mes projets
-          </h2>
+          <h2 className="h2">Mes projets</h2>
 
           <div className="flex w-full flex-col gap-5 md:flex-row">
             <Search />

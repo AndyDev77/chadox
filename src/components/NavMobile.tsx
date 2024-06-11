@@ -17,7 +17,7 @@ const NavMobile = () => {
           />
         </SheetTrigger>
         <SheetContent className="flex flex-col gap-6 bg-white md:hidden">
-          <Image src="/img/header/logo.svg" alt="logo" width={128} height={38} />
+          <Image src="/img/header/logo.gif" alt="logo" width={128} height={38} />
           <Separator className="border border-gray-50" />
           <NavConnect />
         </SheetContent>

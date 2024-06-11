@@ -8,8 +8,8 @@ export const navData = [
     route: "/",
   },
   {
-    label: "A propos",
-    route: "#about",
+    label: "Projets",
+    route: "#events",
   },
   {
     label: "Contact",
@@ -186,7 +186,7 @@ export const footerData = {
     items: [
       { href: "/", name: "Accueil" },
       { href: "#about", name: "A propos" },
-      { href: "/", name: "Projets" },
+      { href: "#events", name: "Projets" },
       { href: "#contact", name: "Contact" },
     ],
   },

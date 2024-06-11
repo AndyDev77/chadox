@@ -16,7 +16,7 @@ const EventDetails = async ({ params: { id }, searchParams }: SearchParamProps) 
 
   return (
     <>
-      <section className="flex justify-center bg-primary-50 bg-dotted-pattern bg-contain my-40">
+      <section className="flex justify-center bg-primary-50 bg-dotted-pattern bg-contain mt-20">
         <div className="grid grid-cols-1 md:grid-cols-2 2xl:max-w-7xl">
           <Image
             src={event.imageUrl}
@@ -32,7 +32,7 @@ const EventDetails = async ({ params: { id }, searchParams }: SearchParamProps) 
 
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
                 <div className="flex gap-3">
-                  <p className="p-bold-20 bg-dark px-5 py-2 text-white">{event.category.name}</p>
+                  <p className="p-medium-16 bg-black px-5 py-2 text-white">{event.category.name}</p>
                 </div>
 
                 <p className="p-medium-18 ml-2 mt-2 sm:mt-0">
@@ -44,7 +44,7 @@ const EventDetails = async ({ params: { id }, searchParams }: SearchParamProps) 
               </div>
             </div>
 
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-5">
               <p className="p-bold-20 text-grey-600">Description:</p>
               <p className="p-medium-16 lg:p-regular-18">{event.description}</p>
               <p className="p-medium-16 lg:p-regular-18 truncate text-primary-500 underline">
@@ -53,8 +53,10 @@ const EventDetails = async ({ params: { id }, searchParams }: SearchParamProps) 
             </div>
 
             <div className="flex flex-col gap-2">
-              <Button className="bg-dark text-white">
-                <Link href={event.videoUrl}>Voir la vidéo</Link>
+              <Button className="bg-black text-white">
+                <Link href={event.videoUrl} target="_blank">
+                  Voir la vidéo
+                </Link>
               </Button>
             </div>
           </div>

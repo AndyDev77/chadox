@@ -18,14 +18,17 @@ const Hero = () => {
 
   return (
     <section
-      className="bg-hero bg-cover bg-center min-h-[40vh] lg:h-[948px] bg-no-repeat relative mt-[120px] lg:mt-[150px]"
+      className="bg-hero bg-cover bg-center min-h-[40vh] lg:h-[948px] bg-no-repeat relative"
       id="hero"
     >
-      <div className="container mx-auto min-h-[40vh] lg:h-full flex items-center justify-center xl:justify-end">
+      <div className="wrapper mx-auto min-h-[40vh] lg:h-full flex items-center justify-center xl:justify-end">
         <div className="text-white text-center lg:text-left lg:max-w-[640px]">
-          <h1 className="h1">{title}</h1>
-          <p className="mb-8 lg:mb-16 max-w-lg leading-relaxed">{subtitle}</p>
-          <div>
+          <div className="flex flex-col justify-center gap-8">
+            <h1 className="h1-bold">{title}</h1>
+            <p className="p-regular-14 md:p-regular-18">{subtitle}</p>
+          </div>
+
+          <div className="mt-8">
             <button
               className="btn btn-sm lg:btn-lg btn-outline mx-auto lg:mx-0"
               onClick={handleDownload}

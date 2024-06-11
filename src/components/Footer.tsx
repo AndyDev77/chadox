@@ -4,7 +4,7 @@ import { Mail, MapPinned, Phone } from "lucide-react";
 const Footer = () => {
   const { about, links, program } = footerData;
   return (
-    <footer className="section bg-dark">
+    <footer className="section bg-black">
       <div className="container mx-auto">
         <div className="text-white flex flex-col lg:flex-row lg:justify-between gap-x-5 gap-y-14">
           <div className="flex-1 flex flex-col gap-y-6">

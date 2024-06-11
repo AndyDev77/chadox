@@ -52,7 +52,7 @@ const CategoryFilter = () => {
       <SelectTrigger className="select-field">
         <SelectValue placeholder="Catégories" />
       </SelectTrigger>
-      <SelectContent className="bg-white">
+      <SelectContent>
         <SelectItem value="All" className="select-item p-regular-14">
           Tous
         </SelectItem>

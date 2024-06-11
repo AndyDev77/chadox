@@ -50,29 +50,33 @@ const Navbar = () => {
   return (
     <header
       className={`${
-        isActive ? "h-[100px] lg:h-[100px] shadow-lg" : "h-[120px] lg:h-[150px]"
-      } fixed bg-white left-0 right-0 z-10 max-w-[1920px] w-full mx-auto transition-all duration-300`}
+        isActive ? "w-full border-b shadow-lg" : "w-full border-b"
+      } fixed "w-full border-b bg-white z-10 mx-auto transition-all duration-300`}
     >
-      <div className="flex justify-between items-center h-full pl-[50px] pr-[60px]">
-        <Image src={logo} alt="logo" width={170} height={90} />
+      <div className="wrapper flex items-center justify-between">
+        <Link href="/" className="w-36">
+          <Image src={logo} alt="logo" width={128} height={38} />
+        </Link>
 
         <SignedOut>
-          <div className="hidden xl:flex">
+          <div className="md:flex-between hidden w-full max-w-xs">
             <Nav />
           </div>
         </SignedOut>
 
         <SignedIn>
-          <div className="hidden xl:flex">{isAdmin ? <NavConnect /> : <Nav />}</div>
+          <div className="md:flex-between hidden w-full max-w-xs">
+            {isAdmin ? <NavConnect /> : <Nav />}
+          </div>
         </SignedIn>
 
-        <div className="hidden xl:flex">
+        <div className="flex w-32 justify-end gap-3">
           <SignedIn>
             <UserButton afterSignOutUrl="/" />
             <NavMobile />
           </SignedIn>
           <SignedOut>
-            <Button asChild className="btn btn-dark" size="lg">
+            <Button asChild size="lg">
               <Link href="/sign-in">Connexion</Link>
             </Button>
           </SignedOut>
