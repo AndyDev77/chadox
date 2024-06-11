@@ -1,6 +1,6 @@
 "use client";
 import { headerData } from "@/constants";
-import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
+import { SignedIn, SignedOut, UserButton, useUser } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -13,13 +13,39 @@ import { Button } from "./ui/button";
 const Navbar = () => {
   const { logo } = headerData;
   const [isActive, setIsActive] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
+  const { user } = useUser();
 
   useEffect(() => {
-    window.addEventListener("scroll", () => {
+    setMounted(true);
+  }, []);
+
+  const adminEmail = process.env.NEXT_PUBLIC_ADMIN_EMAIL;
+
+  useEffect(() => {
+    if (user) {
+      // console.log("User data:", user);
+      // console.log("Admin Email:", adminEmail);
+      // console.log("Is Admin:", user.primaryEmailAddress?.emailAddress === adminEmail);
+    }
+  }, [user, adminEmail]);
+
+  const isAdmin = user?.primaryEmailAddress?.emailAddress === adminEmail;
+
+  useEffect(() => {
+    const handleScroll = () => {
       window.scrollY > 50 ? setIsActive(true) : setIsActive(false);
-    });
-  });
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  if (!mounted) {
+    return null; // Render nothing on the server
+  }
 
   return (
     <header
@@ -37,9 +63,7 @@ const Navbar = () => {
         </SignedOut>
 
         <SignedIn>
-          <div className="hidden xl:flex">
-            <NavConnect />
-          </div>
+          <div className="hidden xl:flex">{isAdmin ? <NavConnect /> : <Nav />}</div>
         </SignedIn>
 
         <div className="hidden xl:flex">

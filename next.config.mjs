@@ -9,6 +9,9 @@ const nextConfig = {
       },
     ],
   },
+  env: {
+    adminEmail: process.env.ADMIN_EMAIL,
+  },
 };
 
 export default nextConfig;
