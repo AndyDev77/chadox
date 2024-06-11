@@ -9,7 +9,7 @@ export const ourFileRouter = {
   // Define as many FileRoutes as you like, each with a unique routeSlug
   mediaUploader: f({
     image: { maxFileSize: "8MB" },
-    video: { maxFileSize: "32MB" }, // Ajoutez la configuration pour les vidéos
+    video: { maxFileSize: "256MB" }, // Ajoutez la configuration pour les vidéos
   })
     // Set permissions and file types for this FileRoute
     .middleware(async ({ req }) => {
